@@ -114,6 +114,11 @@ body {
     text-decoration: none;
   }
 
+  a:visited:hover {
+    color: slategrey;
+    text-decoration: none;
+  }
+
   .vimeo-embed-container {
     --video--width: 1280;
     --video--height: 720;
