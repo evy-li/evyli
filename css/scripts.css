@@ -1,6 +1,6 @@
 /* spotted a problem? i'm not a web dev. please let me know via the email address on the home page. */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('http://fonts.cdnfonts.com/css/everson-mono-latin-6');
 
 @media only screen and (max-width: 1000px) {
   .parent {
@@ -91,10 +91,11 @@
 }
 
 body {
-    background-color:rgb(247, 247, 247);
+    background-color:rgb(23, 23, 23);
     text-align: justify;
     text-justify: inter-word;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Everson Mono Latin 6', sans-serif;
+    color: rgb(183, 235, 220);
     padding: 2em;
   }
 
