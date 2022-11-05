@@ -43,6 +43,7 @@
       margin-left: 0;
       margin-right: 0;
       font-weight: 500;
+      color:grey;
     }
 }
 
@@ -87,6 +88,7 @@
       margin-left: 0;
       margin-right: 0;
       font-weight: 500;
+      color:grey;
     }
 }
 
@@ -95,32 +97,32 @@ body {
     text-align: justify;
     text-justify: inter-word;
     font-family: 'Everson Mono Latin 6', sans-serif;
-    color: rgb(183, 235, 220);
+    color:lightseagreen;
     padding: 2em;
   }
 
   a {
-    color: darkslateblue;
+    color:indianred;
     text-decoration: none;
   }
 
   a:hover {
-    color: slategrey;
+    color:lightseagreen;
     text-decoration: none;
   }
 
   a:active {
-    color: slategrey;
+    color:indianred;
     text-decoration: none;
   }
 
   a:visited {
-    color: darkslateblue;
+    color:indianred;
     text-decoration: none;
   }
 
   a:visited:hover {
-    color: slategrey;
+    color:lightseagreen;
     text-decoration: none;
   }
 
@@ -149,3 +151,5 @@ body {
     width: 100%;
     height: auto;
   }
+
+  .hline { width:100%; height:1px; background:lightseagreen; }
