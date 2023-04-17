@@ -18,37 +18,28 @@
     <META NAME="robots"
         CONTENT="noindex,nofollow,nocache,noarchive,nosnippet,nositelinkssearchbox,nopagereadaloud,notranslate,noimageindex,noyaca">
 
+
+    <link rel="stylesheet" href="/css/style.css">
+
     <style>
-        body
+  .clickme
 {
-background: black;
+    position: absolute;
+    height: 50vh;
+    width: 50vw;
+    text-align: center;
+    top: calc(50% - 25vh);
+    left: calc(50% - 25vw);
+  
 }
-
-#background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
     </style>
 
 </head>
 
 <body>
 
-    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
-        <source src="/video/nz/cover_h264.mp4" type="video/mp4">
-        </video>
-
-        <audio id="player" autoplay loop>
-            <source src="/video/nz/nightambience.mp3" type="audio/mp3">
-        </audio>
-</body>
+    <div class="clickme">
+        <a href="cover.html">click to open N-Z deck</a>
+        </div>
 
 </html>
