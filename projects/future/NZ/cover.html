@@ -22,10 +22,15 @@
         body
 {
 background: black;
+height:100%;
+ min-height:100%;
+ margin:0;
 }
 
 #background-video {
-  width: 100vw;
+ /* width: 100vw;*/
+ display: block;
+ margin: auto;
   height: 100vh;
   object-fit: cover;
   position: fixed;
@@ -34,6 +39,34 @@ background: black;
   top: 0;
   bottom: 0;
   z-index: -1;
+}
+
+#forward-div {
+    display: block;
+    cursor: e-resize;
+   /* background: pink;*/
+    width: 50vw;
+    height: 100vh;
+    float: right;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+    z-index: 2;
+}
+
+#back-div {
+    display: block;
+    cursor: w-resize;
+   /* background: lightcyan;*/
+    width: 50vw;
+    height: 100vh;
+    float:none;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+    z-index: 3;
 }
 
     </style>
@@ -49,6 +82,16 @@ background: black;
     <video id="background-video" autoplay loop muted poster="/video/nz/cover_still.jpg">
         <source src="/video/nz/cover_h264.mp4" type="video/mp4">
         </video>
+
+    <a href="page1.html">
+        <div id="forward-div">
+    </div>
+    </a>
+
+    <a href="index.html">
+        <div id="back-div">
+    </div>
+    </a>
 
 </body>
 
