@@ -2,6 +2,42 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@font-face {
+  font-family: 'SFMlight';
+  src: url('SFNSMono-Light.woff2') format('woff2'),
+      url('SFNSMono-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFM';
+  src: url('SFNSMono-LightItalic.woff2') format('woff2'),
+      url('SFNSMono-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFI';
+  src: url('SFNS-RegularItalic.woff2') format('woff2'),
+      url('SFNS-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFR';
+  src: url('SFNS-Regular.woff2') format('woff2'),
+      url('SFNS-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @media only screen and (max-width: 1000px) {
   .parent {
     display: grid;
@@ -116,7 +152,7 @@ body {
     background-color:rgb(247, 247, 247);
     text-align: justify;
     text-justify: inter-word;
-    font-family: 'Inter', sans-serif;
+    font-family: 'SFR', sans-serif;
     padding: 2em;
   }
 
