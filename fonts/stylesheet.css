@@ -1,0 +1,36 @@
+@font-face {
+    font-family: '.SF NS Mono';
+    src: url('SFNSMono-Light.woff2') format('woff2'),
+        url('SFNSMono-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: '.SF NS Mono';
+    src: url('SFNSMono-LightItalic.woff2') format('woff2'),
+        url('SFNSMono-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'System Font';
+    src: url('SFNS-RegularItalic.woff2') format('woff2'),
+        url('SFNS-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'System Font';
+    src: url('SFNS-Regular.woff2') format('woff2'),
+        url('SFNS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
