@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- spotted a problem? i'm not a web dev. please let me know via the email address on the home page. -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITLE — Evelyn Lindberg</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/splide.min.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.1/dist/js/splide.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var splide = new Splide('.splide');
+            splide.mount();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="div2"> </div>
+        <div class="div1"> </div>
+        <div class="div3">
+            <p>
+                <h3>— <a href="../index.html">back</a></h3>
+            </br>
+                </p>
+            <p>
+            <h1>TITLE</h1>
+            <h2>ROLE</h2>
+            <h2>YEAR — TYPE — <a href="https://www.lobufilms.com/">PROD</a></h2>
+            </p>
+
+            <p>
+            <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide"><img src="/images/boy/a.jpg" alt="A film still"></li>
+                        <li class="splide__slide"><img src="/images/boy/b.jpg" alt="A film still"></li>
+                        <li class="splide__slide"><img src="/images/boy/c.jpg" alt="A film still"></li>
+                    </ul>
+                </div>
+            </div>
+            </p>
+            <h2>SYNOPSIS
+                <p>
+                    director — DIR<br>
+                    producer — PROD<br>
+                    <br>
+                    CAST — ACTOR<br>
+            </h2>
+            </p>
+            </p>
+            <p>
+            <h3><a href="#openModal">— technical details</a></h3>
+            </p>
+            <div id="openModal" class="modalDialog">
+                <div>
+                    <h4>
+                    <p>language — LANG</br>
+                    runtime — TIME</p>
+                    <p>acquisition — FORMAT</p>
+                    <p>finishing — davinci resolve, aces</br>
+                    format — FORMAT</p>
+        
+                    <a href="#close" title="Close">— close</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
