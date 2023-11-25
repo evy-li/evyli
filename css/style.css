@@ -1,6 +1,6 @@
 /* spotted a problem? i'm not a web dev. please let me know via the email address on the home page. */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('/css/reset.css');
 @import url('/fonts/stylesheet.css');
 
 @media only screen and (max-width: 1000px) {
