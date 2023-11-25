@@ -1,6 +1,6 @@
 /* spotted a problem? i'm not a web dev. please let me know via the email address on the home page. */
 
-@import url('/css/reset.css');
+@import url('https://raw.githubusercontent.com/elad2412/the-new-css-reset/main/css/reset.css');
 @import url('/fonts/stylesheet.css');
 
 @media only screen and (max-width: 1000px) {
