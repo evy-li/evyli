@@ -1,198 +1,83 @@
-/* spotted a problem? i'm not a web dev. please let me know via the email address on the home page. */
+@import url("https://raw.githubusercontent.com/elad2412/the-new-css-reset/main/css/reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;500;600;700;800&display=swap");
 
-@import url('https://raw.githubusercontent.com/elad2412/the-new-css-reset/main/css/reset.css');
-@import url('/fonts/stylesheet.css');
-
-@media only screen and (max-width: 1000px) {
-  .parent {
-    display: grid;
-    grid-template-columns: 1fr 100fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-
-    .div1 { grid-area: 3 / 3 / 4 / 4; }
-    .div2 { grid-area: 1 / 2 / 2 / 3; }
-    .div3 { grid-area: 1 / 2 / 2 / 3; }
-
-    h1 {
-      font-family: 'NHD-Medium', sans-serif;
-      font-size: 2em;
-      display: block;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-      font-weight: 500;
-    }
-  
-    h2 {
-      font-family: 'NHD-Roman', sans-serif;
-      display: block;
-      font-size: 1.25em;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-      font-weight: 500;
-    }
-  
-    h3 {
-      font-family: 'NHD-Roman', sans-serif;
-      display: block;
-      font-size: 1.25em;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-      font-weight: 500;
-    }
-
-    h4 {
-      font-family: 'NHD-Roman', sans-serif;
-      display:inline;
-      text-align: left;
-      font-size: 1.25em;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-      font-weight: 500;
-    }
+/* Responsive Grid Layout */
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 100fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 @media only screen and (min-width: 1001px) {
   .parent {
-    display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-    
-    .div1 { grid-area: 3 / 3 / 4 / 4; }
-    .div2 { grid-area: 1 / 2 / 2 / 3; }
-    .div3 { grid-area: 1 / 2 / 2 / 3; }
-
-    h1 {
-      font-family: 'NHD-Medium', sans-serif;
-      font-size: 3em;
-      display: block;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-    }
-  
-    h2 {
-      font-family: 'NHD-Roman', sans-serif;
-      display: block;
-      font-size: 1.75em;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-    }
-  
-    h3 {
-      font-family: 'NHD-Roman', sans-serif;
-      display: block;
-      font-size: 1.75em;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    h4 {
-      font-family: 'NHD-Roman', sans-serif;
-      display:block;
-      text-align: left;
-      font-size: 1.25em;
-      margin-top: 0.1em;
-      margin-bottom: 0.1em;
-      margin-left: 0;
-      margin-right: 0;
-    }
+  }
 }
 
+.div1 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.div3 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+/* Base & Link Styles */
 body {
-    background-color:rgb(247, 247, 247);
-    text-align: justify;
-    padding: 2em;
-  }
-
-  a {
-    color: darkslateblue;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: slategrey;
-    text-decoration: none;
-  }
-
-  a:active {
-    color: slategrey;
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: darkslateblue;
-    text-decoration: none;
-  }
-
-  a:visited:hover {
-    color: slategrey;
-    text-decoration: none;
-  }
-
-  .vimeo-embed-container {
-    --video--width: 1280;
-    --video--height: 720;
-
-    position: relative;
-    padding-bottom: calc(var(--video--height) / var(--video--width) * 100%); /* 41.66666667% */
-    overflow: hidden;
-    max-width: 100%;
-    background: black;
-  }
-
-  .vimeo-embed-container iframe,
-  .vimeo-embed-container object,
-  .vimeo-embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .splide__slide img {
-    width: 100%;
-    height: auto;
-  }
-
-  .modalDialog {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 99999;
-    opacity:0;
-    pointer-events: none;
+  background-color: rgb(240, 240, 240);
+  color: rgb(40, 40, 40);
+  font-size: 1em;
+  font-family: "Google Sans Code", sans-serif;
+  font-weight: 100;
+  display: block;
+  text-align: left;
+  margin: 0.1em 0;
+  text-align: justify;
+  padding: 2em;
 }
-.modalDialog.open {
-    opacity:1;
-    pointer-events: auto;
+
+a,
+a:visited {
+  color: darkseagreen;
+  text-decoration: none;
 }
-.modalDialog > div {
-    width: 50vw;
-    position: relative;
-    margin: 10% auto;
-    padding: 2em;
-    background: rgb(247, 247, 247);
+
+a:hover,
+a:active,
+a:visited:hover {
+  color: slategrey;
+  text-decoration: none;
+}
+
+/* Media & Layout Utilities */
+
+/* Scalable responsive image inside any grid cell */
+.filmstill {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vimeo-embed-container {
+  --video--width: 1280;
+  --video--height: 720;
+  position: relative;
+  padding-bottom: calc(var(--video--height) / var(--video--width) * 100%);
+  overflow: hidden;
+  max-width: 100%;
+  background: black;
+}
+
+.vimeo-embed-container iframe,
+.vimeo-embed-container object,
+.vimeo-embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

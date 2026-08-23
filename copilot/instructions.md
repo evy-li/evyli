@@ -2,8 +2,8 @@
 
 ## Project Overview
 
-Personal portfolio website for **Evelyn Lindberg**, a cinematographer.  
-Simple static HTML/CSS/JS site deployed on **Cloudflare Pages**.
+Personal portfolio website for **Evelyn Lindberg**, a filmmaker (cinematography, colour, focus puller/DIT background).  
+Simple static HTML/CSS site deployed on **Cloudflare Pages**. No build tools, no framework.
 
 **Domain:** evy.li  
 **Contact:** hi@evy.li
@@ -14,134 +14,133 @@ Simple static HTML/CSS/JS site deployed on **Cloudflare Pages**.
 
 ```
 /
-├── index.html                    # Home page
+├── index.html                    # Home page (single nav/contact list)
 ├── CNAME                         # Custom domain (evy.li)
 ├── site.webmanifest              # PWA manifest
+├── README.md
 ├── .gitignore
+├── .well-known/
+│   ├── atproto-did               # Bluesky/AT protocol domain verification
+│   ├── index.html
+│   └── index.md
 ├── copilot/                      # Agent instructions (NOT deployed)
-│   └── instructions.md
+│   ├── instructions.md
+│   └── cloudflare-pages.sh       # Build script (see Deployment)
 ├── css/
-│   ├── style.css                 # All custom styles (mobile + desktop breakpoints at 1000px)
-│   └── splide.min.css            # Splide.js carousel CSS (vendored)
-├── fonts/
-│   ├── stylesheet.css            # @font-face declarations for Neue Haas Display
-│   └── NeueHaasDisplay-*.woff2   # Font files (many weights)
-├── js/
-│   └── app.js                    # Modal open/close logic
+│   └── style.css                 # All custom styles (mobile + desktop breakpoints at 1001px)
 ├── images/
-│   └── boy/                      # Film stills for "Boy" project
+│   ├── boy/                      # Film stills for "Boy" project
+│   │   ├── a.jpg
+│   │   ├── b.jpg
+│   │   └── c.jpg
+│   └── dust/                     # Film stills for "Dust" project
 │       ├── a.jpg
 │       ├── b.jpg
-│       └── c.jpg
-├── video/
-│   └── nz/                       # Video files for N—Z deck project
-│       ├── cover_h264.mp4
-│       ├── cover_still.jpg
-│       └── nightambience.mp3
-├── projects/
-│   ├── left_over.html            # "Left Over" project page
-│   ├── boy.html                  # "Boy" project page (uses Splide carousel)
-│   ├── post_398.html             # "Post 398" project page
-│   ├── templates/
-│   │   └── splide.html           # Boilerplate template for new projects
-│   └── future/
-│       └── NZ/                   # N—Z interactive video deck (password protected)
-│           ├── index.html        # Landing / entry page
-│           └── cover.html        # Video cover page (links to page1.html — not yet created)
+│       ├── c.jpg
+│       └── d.jpg
+├── video/                        # Currently empty (reserved for future projects)
+└── projects/
+    ├── boy.html                  # "Boy"
+    ├── dust.html                 # "Dust"
+    ├── development.html          # Feature projects in development ("Fir Tree", "Spooky Effects at a Distance")
+    ├── left_over.html            # "Left Over" (Vimeo embed)
+    └── post_398.html             # "Post 398" (Vimeo embed)
 ```
+
+PWA / favicon files at repo root: `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png`.
 
 ---
 
 ## Design System
 
 ### Typography
-- **Font:** Neue Haas Display (NeueHaasDisplay-*), self-hosted via `fonts/`
-- **Weights used:** NHD-Medium (headings), NHD-Roman (body text)
-- **Declared in:** `fonts/stylesheet.css` — loaded via `@import` in `style.css`
+- **Font:** Google Sans Code, loaded from Google Fonts
+- **Declared in:** `style.css` via `@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;500;600;700;800&display=swap')`
+
+### CSS Resets
+- **Reset:** Adobe's new CSS reset, imported from GitHub raw:
+  `@import url('https://raw.githubusercontent.com/elad2412/the-new-css-reset/main/css/reset.css')`
 
 ### Layout
 - CSS Grid via `.parent` class with `div1`, `div2`, `div3` grid areas
-- **Mobile:** `< 1000px` — single-column, tighter margins
-- **Desktop:** `>= 1001px` — three-column layout (1fr 2fr 1fr)
-- **Body:** `padding: 2em`, background `rgb(247, 247, 247)`
+- **Mobile:** `< 1001px` — columns `1fr 100fr 1fr`
+- **Desktop:** `>= 1001px` — three-column layout `1fr 2fr 1fr`
+- `div1`, `div2`, `div3` are the three grid cells; text/media lives in `.div3`
+- **Body:** `padding: 2em`, background `rgb(240, 240, 240)`, text `rgb(40, 40, 40)`
 
 ### Colors
-- **Background:** `rgb(247, 247, 247)` (off-white)
-- **Links:** `darkslateblue` / `slategrey` on hover
+- **Background:** `rgb(240, 240, 240)` (off-white)
+- **Text:** `rgb(40, 40, 40)`
+- **Links:** `darkseagreen`, hover `slategrey`
 
 ### Components
-- **Vimeo embeds:** `.vimeo-embed-container` — responsive iframe wrapper
-- **Splide carousel:** Used on `boy.html` via Splide.js (loaded from CDN + vendored CSS)
-- **Modal dialogs:** `.modalDialog` — toggled via `#openModalBtn` + `js/app.js`
-  - Opens on click, closes on: click outside, Escape key, or "close" link
+- **Vimeo embeds:** `.vimeo-embed-container` — responsive iframe wrapper (used on `left_over.html` and `post_398.html`)
+- **Image stills:** `.filmstill` — full-width responsive inline image (used on `boy.html` and `dust.html`)
 
 ---
 
 ## Conventions
 
 ### HTML Pages
-- Each project page follows the same pattern as `projects/templates/splide.html`
-- Always include the comment: `<!-- spotted a problem? i'm not a web dev. please let me know via the email address on the home page. -->`
-- Link back to home: `<h3>— <a href="../index.html">back</a></h3>`
-- Modal: `id="openModal"` + `id="openModalBtn"` + `.modalDialog` class
-
-### Project Page Template (from `projects/templates/splide.html`)
+- Every page includes the comment:
+  `<!-- spotted a problem? i'm not a web dev. please let me know via the email address on the home page. -->`
+- Every page links the shared stylesheet: `<link rel="stylesheet" href="/css/style.css">`
+- Body skeleton (all pages):
 ```
-<h1>TITLE</h1>
-<h2>ROLE</h2>
-<h2>YEAR — TYPE — <a href="...">PROD</a></h2>
-... content (video embed or image carousel) ...
-<h2>SYNOPSIS
-    <p>director — DIR<br>
-    producer — PROD<br>
-    <br>
-    CAST — NAME<br>
-</h2>
-<h3>— <a href="...">imdb</a></h3>
-<h3><a href="#openModal" id="openModalBtn">— technical details</a></h3>
-<div id="openModal" class="modalDialog">
-    <div>
-        <h4>
-        <p>language — LANG</br>
-        runtime — TIME</p>
-        <p>acquisition — FORMAT</p>
-        <p>finishing — davinci resolve, aces</br>
-        format — FORMAT</p>
-        <a href="#close" title="Close">— close</a>
-        </h4>
+<body>
+    <div class="parent">
+        <div class="div2"> </div>
+        <div class="div1"> </div>
+        <div class="div3">
+            ...content here...
+        </div>
     </div>
-</div>
+</body>
 ```
 
-### N—Z Deck Pages
-- Black background, full-screen video with audio
-- No cache / no index meta tags
-- Left/right click zones for navigation
-- Uses HTML5 `<video>` and `<audio>` elements
+### Film Project Page Pattern (`boy`, `dust`, `left_over`, `post_398`)
+- `<title>` = `PROJECT — Evelyn Lindberg`
+- First `<p>` = project metadata line joined with ` _ ` separators:
+  `Project _ role(s) _ type _ production company(ies) _ director — NAME _ producer — NAME _ imdb link`
+- Middle `<p>` = media: either a Vimeo iframe inside `.vimeo-embed-container`, or multiple `.filmstill` `<img>` tags
+- Last `<p>` = `[short synopsis]` + tech specs joined with ` _ `: format, runtime, aspect ratio, fps, colour/black&white, audio, language
+
+### Home Page (`index.html`)
+- Single `.div3` `<p>` with all sections joined by ` _ `:
+  `evelyn lindberg _ films _ Dust _ Left Over _ Boy _ Post 398 _ apps _ screenp.la _ about _ <bio> _ contact _ hi@evy.li _ links _ ig _ bsky`
+- Project links point to `projects/<name>.html`
+- `mailto:hi@evy.li` uses `rel="me"` for identity verification
+- Bluesky profile link: `https://bsky.app/profile/evy.li`
+
+### Development Page (`development.html`)
+- Lists feature projects in development as separate `<p>` blocks (title _ genre _ logline)
+- Ends with a contact line linking `hi@evy.li`
+
+### Note: No JS, no modal, no carousel
+- The current site has **no JavaScript at all**. Previously used features — Splide carousel, modal dialogs (`js/app.js`), local fonts folder, and the N—Z video deck — have all been **removed**. Do not reintroduce them.
 
 ---
 
 ## Deployment (Cloudflare Pages)
 
-### Build Configuration (required in Cloudflare dashboard)
-Since this is a static HTML site with **no build step**, Cloudflare Pages deploys the entire repo root by default.  
-**To exclude the `/copilot/` directory from deployment**, set the following in the Cloudflare Pages dashboard:
+There is a **build script** at `copilot/cloudflare-pages.sh`. It copies all files (including dotfiles like `CNAME`, `.well-known/`) into `_site/`, then removes `copilot/` from the output.
+
+The build command is configured in the Cloudflare Pages dashboard. If you need the equivalent inline command, it is:
 
 | Setting | Value |
 |---------|-------|
-| **Build command** | `mkdir -p _site && cp -r * .[^.]* _site/ 2>/dev/null; rm -rf _site/copilot` |
+| **Build command** | run `copilot/cloudflare-pages.sh`, or inline: `mkdir -p _site && cp -r * .[^.]* _site/ 2>/dev/null; rm -rf _site/copilot` |
 | **Build output directory** | `_site` |
 | **Root directory** | (leave blank — use repo root) |
 
-This copies all files (including dotfiles like `CNAME`) into `_site/`, then removes the `copilot/` folder before deployment.
-
-Alternatively, you can use the Cloudflare dashboard's **exclude path** feature if available.
+Alternatively, use the dashboard's **exclude path** feature for `copilot/`.
 
 ### Required Files for Deployment
 The following **must** be deployed:
 - `index.html`, `CNAME`, `site.webmanifest`
-- `css/`, `fonts/`, `js/`, `images/`, `video/`
-- `projects/` (all HTML pages and subdirectories)
+- `css/`, `images/`, `projects/`, `video/`
+- Root-level favicon/PWA PNGs + `favicon.ico`
+- `.well-known/` (needed for Bluesky / AT Protocol domain verification — `atproto-did` must be reachable so the bsky link resolves to `evy.li`)
 
 The following **must not** be deployed:
 - `copilot/` (agent instructions only)
@@ -151,10 +150,12 @@ The following **must not** be deployed:
 
 ## Notes for the AI Agent
 
-1. **New projects:** Use `projects/templates/splide.html` as a starting point — it has the correct structure, modal, Splide carousel, and all required sections.
-2. **No build tools:** This is a pure static site — no npm, no bundler, no framework. All CSS and JS is hand-written or vendored.
-3. **Fonts:** If adding a new font weight, add the `@font-face` declaration to `fonts/stylesheet.css` and place the `.woff`/`.woff2` files in `fonts/`.
-4. **Splide.js:** Loaded from CDN (`https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.1/`). Only vendored file is the CSS (`css/splide.min.css`).
-5. **Vimeo:** Embedded via iframe with autoplay=1 parameter. Use the `.vimeo-embed-container` wrapper div.
-6. **N—Z Deck:** This is a work-in-progress interactive video project. `cover.html` links to `page1.html` which does not yet exist — pages 1..N should follow the same pattern.
-7. **Git:** `/copilot/` is tracked in git (NOT in .gitignore) so instructions are shared. It is excluded from Cloudflare Pages deployment via the build command.
+1. **New film project:** Clone an existing project page (`projects/boy.html` or `projects/dust.html` if image stills, `projects/left_over.html` if a Vimeo embed), update the `<title>`, the metadata `<p>`, the media `<p>`, and the specs `<p>`. Add stills to a new folder under `images/` and reference with `/images/<folder>/...`.
+2. **New project link:** Add it to the film list on `index.html`.
+3. **No build tools:** This is a pure static site — no npm, no bundler, no framework. All CSS is hand-written in `css/style.css`.
+4. **No JavaScript:** Do not add JS dependencies unless the user explicitly asks.
+5. **Vimeo embed:** Use the `.vimeo-embed-container` wrapper with the current Vimeo player URL parameters (autoplay, `title=0`, `portrait=0`, `byline=0`, `color=6a5acd`).
+6. **Fonts:** Loaded entirely via the Google Fonts `@import` in `style.css`. The old local `fonts/` folder and its `@font-face` files were removed.
+7. **Grid:** Keep the `.parent` / `div1` / `div2` / `div3` grid structure. Text and media always live in `.div3`. `div1` and `div2` are intentionally empty placeholder cells.
+8. **Git:** `/copilot/` is tracked in git (NOT in .gitignore) so instructions are shared. It is excluded from Cloudflare Pages deployment via the build command / exclude path.
+9. **Bluesky identity:** `rel="me"` on the `mailto` link plus `.well-known/atproto-did` keep the `@evy.li` handle working on Bluesky. If you change the mailto or the DID, update both.
