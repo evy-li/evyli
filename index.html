@@ -27,6 +27,23 @@
                     href="https://bsky.app/profile/evy.li">bsky/fediverse</a>
         </div>
     </div>
+
+    <script>
+        // preload images so they're cached for the project pages
+        // add any new stills here so they load in before the user clicks through
+        var preload = [
+            '/images/boy/a.jpg', '/images/boy/b.jpg', '/images/boy/c.jpg',
+            '/images/boy/d.jpg', '/images/boy/e.jpg', '/images/boy/f.jpg',
+            '/images/dust/a.jpg', '/images/dust/b.jpg', '/images/dust/c.jpg',
+            '/images/dust/d.jpg', '/images/dust/e.jpg'
+        ];
+        window.addEventListener('load', function () {
+            preload.forEach(function (src) {
+                var img = new Image();
+                img.src = src;
+            });
+        });
+    </script>
 </body>
 
 </html>
